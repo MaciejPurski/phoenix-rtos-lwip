@@ -12,6 +12,7 @@
 #include "lwip/tcpip.h"
 #include "filter.h"
 #include "netif-driver.h"
+#include "lwip/dhcp.h" 
 
 #include <sys/msg.h>
 #include <posix/utils.h>
@@ -195,6 +196,7 @@ int main(int argc, char **argv)
 	void register_driver_pppos(void);
 	void register_driver_tun(void);
 	void register_driver_tap(void);
+	void register_driver_intel82567(void);
 
 	init_lwip_tcpip();
 	init_lwip_sockets();
@@ -210,6 +212,9 @@ int main(int argc, char **argv)
 #ifdef HAVE_DRIVER_tuntap
 	register_driver_tun();
 	register_driver_tap();
+#endif
+#ifdef HAVE_DRIVER_intel82567
+	register_driver_intel82567();
 #endif
 #endif
 

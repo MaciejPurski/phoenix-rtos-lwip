@@ -23,6 +23,7 @@ void pci_setBusMaster(uint16_t devnum, int enable)
 
 	cmds = pci_configRead(devnum, 0x04);
 	cmds |= 0x04;
+	printf("cmds: %x\n", cmds);
 	pci_configWrite(devnum, 0x04, cmds);
 }
 

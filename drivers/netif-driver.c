@@ -14,6 +14,7 @@
 #include "lwip/netifapi.h"
 #include "lwip/stats.h"
 #include "lwip/snmp.h"
+#include "lwip/dhcp.h" 
 
 #include <sys/threads.h>
 #include <errno.h>
@@ -165,6 +166,14 @@ int create_netif(char *conf)
 	if (err != ERR_OK)
 		free(ni);
 
+
+	// if ((err = dhcp_start(ni)) != ERR_OK) {
+	// 	printf("DHCP START FAIL: %d\n", err);
+	// } else {
+	// 	sys_check_timeouts();
+	// 	printf("DHCP START SUCCESS\n");
+	// }
+
 	switch (err) {
 	case ERR_OK:
 		return 0;
@@ -176,6 +185,7 @@ int create_netif(char *conf)
 	default:
 		return -ENXIO;
 	}
+
 }
 
 
