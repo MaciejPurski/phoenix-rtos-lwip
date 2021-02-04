@@ -201,6 +201,9 @@ int main(int argc, char **argv)
 {
 	size_t have_intfs = 0;
 
+	if (argc == 1)
+	        return 0;
+
 #ifndef HAVE_WORKING_INIT_ARRAY
 	void init_lwip_tcpip(void);
 	void init_lwip_sockets(void);
