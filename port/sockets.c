@@ -247,7 +247,6 @@ static int socket_ioctl6(int sock, unsigned long request, const void *in_data, c
 		struct sockaddr_in6 *sin6 = (struct sockaddr_in6 *) &in6_ifreq->ifrau_addr;
 		ip6_addr_t ip6addr;
 		s8_t idx;
-		int flags;
 
 		if (netif == NULL) {
 			return -ENXIO;
