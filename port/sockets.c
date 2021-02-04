@@ -160,7 +160,7 @@ static int netif_ip6_flags(struct netif *netif, unsigned int idx)
  * For now lwip assumes all IPv6 address
  * are 64 bits long except for loopback address.
  */
-static void inet6_addr_netmask_from_ip6addr(struct in6_addr *dst, ip6_addr_t *src)
+static void inet6_addr_netmask_from_ip6addr(struct in6_addr *dst, const ip6_addr_t *src)
 {
 	memset(dst, 0xff, sizeof(*dst));
 	if (!ip6_addr_isloopback(src)) {
