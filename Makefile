@@ -1,7 +1,7 @@
 #
 # Makefile for phoenix-rtos-lwip
 #
-# Copyright 2019-2020 Phoenix Systems
+# Copyright 2019-2021 Phoenix Systems
 #
 # %LICENSE%
 #
@@ -11,6 +11,7 @@ MAKEFLAGS += --no-print-directory
 
 TARGET ?= ia32-generic
 #TARGET ?= armv7m4-stm32l4x6
+#TARGET ?= armv7m7-imxrt106x
 #TARGET ?= armv7a7-imx6ull
 
 include ../phoenix-rtos-build/Makefile.common
@@ -47,6 +48,7 @@ endif
 DRIVERS_SRCS := netif-driver.c
 DRIVERS_SRCS_UTIL := bdring.c pktmem.c physmmap.c res-create.c
 DRIVERS_SRCS_pppos := pppos.c
+DRIVERS_SRCS_pppou := pppou.c
 DRIVERS_SRCS_tuntap := tuntap.c
 -include _targets/Makefile.$(TARGET_FAMILY)-$(TARGET_SUBFAMILY)
 DRIVERS_SRCS += $(foreach driver,$(NET_DRIVERS),$(if $(filter $(driver),$(NET_DRIVERS_SUPPORTED)),\
